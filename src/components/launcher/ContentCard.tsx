@@ -10,7 +10,7 @@ interface ContentCardProps {
 
 export function ContentCard({ title, category, imageUrl, tag, tagColor = "bg-accent" }: ContentCardProps) {
   return (
-    <div className="bg-card rounded-xl overflow-hidden group cursor-pointer hover:scale-[1.02] transition-all duration-300 border border-border/50">
+    <div className="bg-card rounded-xl overflow-hidden group cursor-pointer hover:scale-[1.02] transition-all duration-300 border border-transparent hover:border-white/50 hover:bg-white/25">
       <div className="relative">
         <img 
           src={imageUrl} 
