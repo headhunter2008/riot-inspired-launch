@@ -39,21 +39,21 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
-      <HeaderBar />
+    <div className="min-h-screen bg-background flex">
+      <LauncherSidebar />
       
-      <div className="flex flex-1">
-        <LauncherSidebar />
+      <div className="flex-1 flex flex-col">
+        <HeaderBar />
         
         <main className="flex-1 p-8 overflow-auto">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-foreground mb-2">Home</h1>
+            <h1 className="text-4xl font-bold text-foreground">Home</h1>
           </div>
 
           {/* What's New Section */}
-          <div className="mb-8">
-            <h2 className="text-xl font-semibold text-foreground mb-6">What's New</h2>
+          <div className="mb-12">
+            <h2 className="text-2xl font-semibold text-foreground mb-8">What's New</h2>
             
             <FeaturedCard
               title="MSI 2025 Coach Jacket"
@@ -64,7 +64,7 @@ const Index = () => {
           </div>
 
           {/* Content Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-4 gap-6">
             {contentItems.map((item, index) => (
               <ContentCard
                 key={index}

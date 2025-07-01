@@ -10,37 +10,40 @@ interface ContentCardProps {
 
 export function ContentCard({ title, category, imageUrl, tag, tagColor = "bg-accent" }: ContentCardProps) {
   return (
-    <Card className="bg-card border-border overflow-hidden group cursor-pointer hover:scale-[1.02] transition-transform duration-300">
+    <div className="bg-card rounded-xl overflow-hidden group cursor-pointer hover:scale-[1.02] transition-all duration-300 border border-border/50">
       <div className="relative">
         <img 
           src={imageUrl} 
           alt={title}
-          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+          className="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-500"
         />
         
         {/* Category Icon */}
         <div className="absolute top-3 left-3">
-          <div className="w-8 h-8 bg-gaming-gold rounded-full flex items-center justify-center">
-            <span className="text-xs font-bold text-black">L</span>
+          <div className="w-8 h-8 bg-gaming-gold rounded-lg flex items-center justify-center shadow-lg">
+            <span className="text-sm font-bold text-black">⚡</span>
           </div>
         </div>
 
         {/* Tag */}
         <div className="absolute top-3 right-3">
-          <span className={`px-2 py-1 rounded text-xs font-medium text-foreground ${tagColor}`}>
+          <span className={`px-3 py-1 rounded-full text-xs font-semibold text-foreground uppercase tracking-wide ${tagColor}`}>
             {tag}
           </span>
         </div>
+
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
 
-      <CardContent className="p-4">
-        <h3 className="font-semibold text-foreground mb-1 line-clamp-2">
+      <div className="p-4 space-y-2">
+        <h3 className="font-semibold text-foreground text-base leading-tight line-clamp-2">
           {title}
         </h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-sm text-muted-foreground line-clamp-2">
           {category}
         </p>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 }

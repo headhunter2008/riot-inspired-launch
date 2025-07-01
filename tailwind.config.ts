@@ -67,6 +67,9 @@ export default {
 					blue: 'hsl(var(--gaming-blue))',
 					purple: 'hsl(var(--gaming-purple))'
 				},
+				riot: {
+					red: 'hsl(var(--riot-red))'
+				},
 				content: {
 					bg: 'hsl(var(--content-bg))',
 					featured: 'hsl(var(--featured-bg))'
