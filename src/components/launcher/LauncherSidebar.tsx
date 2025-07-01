@@ -24,26 +24,26 @@ const gameIcons = [
 
 export function LauncherSidebar() {
   return (
-    <div className="w-20 bg-sidebar flex flex-col py-6">
+    <div className="w-20 bg-sidebar flex flex-col">
       {/* Logo/Brand area */}
-      <div className="px-4 mb-8">
+      <div className="px-4 pt-6 mb-8">
         <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
           <span className="text-white font-bold text-lg">R</span>
         </div>
       </div>
 
-      {/* Main Navigation */}
-      <div className="px-4 space-y-3 mb-8">
+      {/* Main Navigation - Centered */}
+      <div className="flex-1 flex flex-col justify-center px-4 space-y-3">
         {sidebarItems.map((item, index) => (
           <Button
             key={index}
             variant="ghost"
             size="icon"
             className={cn(
-              "w-12 h-12 rounded-lg flex flex-col items-center justify-center group relative",
+              "w-12 h-12 rounded-lg flex flex-col items-center justify-center group relative border border-transparent transition-all duration-200",
               item.isActive 
-                ? "bg-sidebar-accent text-primary" 
-                : "text-sidebar-foreground/70 hover:text-sidebar-foreground hover:bg-sidebar-accent/50"
+                ? "bg-sidebar-accent text-primary border-primary/50" 
+                : "text-sidebar-foreground/70 hover:text-sidebar-foreground hover:bg-white/25 hover:border-white/50"
             )}
           >
             <item.icon className="h-6 w-6" />
@@ -52,16 +52,17 @@ export function LauncherSidebar() {
             )}
           </Button>
         ))}
-      </div>
 
-      {/* Game Icons */}
-      <div className="px-4 space-y-3">
+        {/* Spacer */}
+        <div className="h-8" />
+
+        {/* Game Icons */}
         {gameIcons.map((game, index) => (
           <Button
             key={index}
             variant="ghost"
             size="icon"
-            className="w-12 h-12 rounded-lg hover:bg-sidebar-accent/50 text-sidebar-foreground/70 hover:text-sidebar-foreground relative group"
+            className="w-12 h-12 rounded-lg hover:bg-white/25 hover:border-white/50 text-sidebar-foreground/70 hover:text-sidebar-foreground relative group border border-transparent transition-all duration-200"
             title={game.tooltip}
           >
             <div className="text-lg">
@@ -72,11 +73,11 @@ export function LauncherSidebar() {
       </div>
 
       {/* User section at bottom */}
-      <div className="mt-auto px-4">
+      <div className="px-4 pb-6">
         <Button
           variant="ghost"
           size="icon"
-          className="w-12 h-12 rounded-lg text-sidebar-foreground/70 hover:text-sidebar-foreground hover:bg-sidebar-accent/50"
+          className="w-12 h-12 rounded-lg text-sidebar-foreground/70 hover:text-sidebar-foreground hover:bg-white/25 hover:border-white/50 border border-transparent transition-all duration-200"
         >
           <User className="h-6 w-6" />
         </Button>
