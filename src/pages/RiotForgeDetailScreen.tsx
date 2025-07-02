@@ -2,12 +2,9 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { PatchNotesRiotForge } from "@/components/game/PatchNotesRiotForge";
-
 export function RiotForgeDetailScreen() {
   const [activeTab, setActiveTab] = useState<'overview' | 'patchnotes'>('overview');
-
-  const overviewContent = (
-    <div className="min-h-screen bg-background">
+  const overviewContent = <div className="min-h-screen bg-background">
       {/* Header with background video/image */}
       <div className="relative h-[60vh] overflow-hidden">
         {/* Video background placeholder */}
@@ -35,7 +32,7 @@ export function RiotForgeDetailScreen() {
         
         {/* Install button */}
         <div className="absolute top-8 left-8 z-20">
-          <Button size="lg" className="bg-primary hover:bg-primary/90 px-8 py-3 text-lg font-bold flex items-center space-x-3">
+          <Button size="lg" className="bg-primary hover:bg-primary/90 font-bold flex items-center space-x-3 px-[37px] py-[27px] text-2xl rounded-lg">
             <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
               <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z" />
             </svg>
@@ -134,8 +131,6 @@ export function RiotForgeDetailScreen() {
           </div>
         </div>
       </div>
-    </div>
-  );
-
+    </div>;
   return activeTab === 'overview' ? overviewContent : <PatchNotesRiotForge />;
 }
