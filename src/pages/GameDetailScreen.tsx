@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { GameLayout } from "@/components/game/GameLayout";
+import { LauncherLayout } from "@/components/launcher/LauncherLayout";
 import { PatchNotesPage } from "@/components/game/PatchNotesPage";
 
 interface GameDetailScreenProps {
@@ -60,6 +60,39 @@ export function GameDetailScreen({ gameId, onGameSelect, onSettingsOpen }: GameD
   const [activeTab, setActiveTab] = useState<'overview' | 'patchnotes'>('overview');
   const game = gameData[gameId] || gameData.valorant;
 
+  if (activeTab === 'patchnotes') {
+    return (
+      <LauncherLayout
+        currentPage=""
+        onPageChange={() => {}}
+        onGameSelect={onGameSelect}
+        onSettingsOpen={onSettingsOpen || (() => {})}
+      >
+        <div className="min-h-screen bg-gradient-to-br from-background via-background/95 to-gaming-purple/5">
+          {/* Navigation tabs */}
+          <div className="sticky top-8 left-1/2 transform -translate-x-1/2 z-20 flex justify-center">
+            <div className="flex space-x-8 glass-effect rounded-full px-6 py-3">
+              <button 
+                onClick={() => setActiveTab('overview')}
+                className="text-white/70 font-medium hover:text-white transition-all duration-200"
+              >
+                Overview
+              </button>
+              <button 
+                onClick={() => setActiveTab('patchnotes')}
+                className="text-white font-bold border-b-2 border-primary pb-1 transition-all duration-200"
+              >
+                Patch Notes
+                <span className="ml-2 w-2 h-2 bg-primary rounded-full inline-block animate-pulse"></span>
+              </button>
+            </div>
+          </div>
+          <PatchNotesPage />
+        </div>
+      </LauncherLayout>
+    );
+  }
+
   const content = (
     <div className="min-h-screen bg-gradient-to-br from-background via-background/95 to-gaming-purple/5">
       {/* Header with background video/image */}
@@ -89,11 +122,7 @@ export function GameDetailScreen({ gameId, onGameSelect, onSettingsOpen }: GameD
             </button>
             <button 
               onClick={() => setActiveTab('patchnotes')}
-              className={`font-medium transition-all duration-200 relative ${
-                activeTab === 'patchnotes' 
-                  ? 'text-white border-b-2 border-primary pb-1' 
-                  : 'text-white/70 hover:text-white'
-              }`}
+              className="font-medium text-white/70 hover:text-white transition-all duration-200 relative"
             >
               Patch Notes
               <span className="ml-2 w-2 h-2 bg-primary rounded-full inline-block animate-pulse"></span>
@@ -304,11 +333,13 @@ export function GameDetailScreen({ gameId, onGameSelect, onSettingsOpen }: GameD
   );
 
   return (
-    <GameLayout 
+    <LauncherLayout
+      currentPage=""
+      onPageChange={() => {}}
       onGameSelect={onGameSelect}
       onSettingsOpen={onSettingsOpen || (() => {})}
     >
-      {activeTab === 'overview' ? content : <PatchNotesPage />}
-    </GameLayout>
+      {content}
+    </LauncherLayout>
   );
 }
