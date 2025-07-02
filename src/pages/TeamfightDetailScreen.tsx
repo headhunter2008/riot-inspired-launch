@@ -1,18 +1,13 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { TeamfightPatchNotes } from "@/components/game/TeamfightPatchNotes";
-
 export function TeamfightDetailScreen() {
   const [activeTab, setActiveTab] = useState<'overview' | 'patchnotes'>('overview');
-  
   if (activeTab === 'patchnotes') {
     return <TeamfightPatchNotes onOverviewClick={() => setActiveTab('overview')} />;
   }
-  
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background/95 to-gaming-purple/5">
+  return <div className="min-h-screen bg-gradient-to-br from-background via-background/95 to-gaming-purple/5">
       {/* Header with background video/image */}
       <div className="relative h-[70vh] overflow-hidden">
         {/* Video background placeholder */}
@@ -28,24 +23,10 @@ export function TeamfightDetailScreen() {
         {/* Navigation tabs */}
         <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-20">
           <div className="flex space-x-8 glass-effect rounded-full px-6 py-3">
-            <button 
-              onClick={() => setActiveTab('overview')} 
-              className={`font-medium transition-all duration-200 ${
-                activeTab === 'overview' 
-                  ? 'text-white border-b-2 border-primary pb-1' 
-                  : 'text-white/70 hover:text-white'
-              }`}
-            >
+            <button onClick={() => setActiveTab('overview')} className={`font-medium transition-all duration-200 ${activeTab === 'overview' ? 'text-white border-b-2 border-primary pb-1' : 'text-white/70 hover:text-white'}`}>
               Overview
             </button>
-            <button 
-              onClick={() => setActiveTab('patchnotes')} 
-              className={`font-medium transition-all duration-200 relative ${
-                activeTab !== 'overview' 
-                  ? 'text-white border-b-2 border-primary pb-1' 
-                  : 'text-white/70 hover:text-white'
-              }`}
-            >
+            <button onClick={() => setActiveTab('patchnotes')} className={`font-medium transition-all duration-200 relative ${activeTab !== 'overview' ? 'text-white border-b-2 border-primary pb-1' : 'text-white/70 hover:text-white'}`}>
               Patch Notes
               <span className="ml-2 w-2 h-2 bg-primary rounded-full inline-block animate-pulse"></span>
             </button>
@@ -64,7 +45,7 @@ export function TeamfightDetailScreen() {
     
         {/* Game title and trailer info */}
         <div className="absolute bottom-12 left-8 text-white z-10">
-          <h1 className="text-7xl font-black mb-6 tracking-tight">Teamfight Tactics</h1>
+          <h1 className="text-7xl font-black mb-6 tracking-tight">Bull</h1>
           <h2 className="text-2xl font-semibold mb-4 text-white/90">Strategy Meets Chaos</h2>
           <p className="text-lg text-white/80 max-w-lg leading-relaxed mb-6">Draft, deploy, and upgrade from a shared pool of champions to create a team comp that will crush the competition.</p>
           
@@ -201,6 +182,5 @@ export function TeamfightDetailScreen() {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 }
