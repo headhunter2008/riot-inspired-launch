@@ -15,7 +15,7 @@ export function LeagueDetailScreen() {
         </div>
         
         {/* Overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent " />
         
         {/* Navigation tabs */}
         <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-20">
