@@ -42,7 +42,7 @@ export function TeamfightDetailScreen() {
         
         {/* Game title and trailer info */}
         <div className="absolute bottom-8 left-8 text-white">
-          <h1 className="text-6xl font-bold mb-4">Teamfight Tactics</h1>
+          <h1 className="font-bold mb-4 text-7xl">Teamfight Tactics</h1>
           <h2 className="text-xl font-semibold mb-2">Strategy Meets Chaos</h2>
           <p className="text-lg opacity-90 max-w-md">Draft, deploy, and upgrade from a shared pool of champions to create a team comp that will crush the competition.</p>
           
