@@ -22,8 +22,7 @@ const App = () => {
   const [selectedGame, setSelectedGame] = useState<string | null>(null);
   const [showSettings, setShowSettings] = useState(false);
 
-  const handleSplashComplete = () => setCurrentScreen('login');
-  const handleLogin = () => setCurrentScreen('main');
+  const handleSplashComplete = () => setCurrentScreen('main');
   const handleGameSelect = (gameId: string) => setSelectedGame(gameId);
   const handlePageChange = (page: string) => {
     setCurrentPage(page);
@@ -40,15 +39,6 @@ const App = () => {
     );
   }
 
-  if (currentScreen === 'login') {
-    return (
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          <LoginScreen onLogin={handleLogin} />
-        </TooltipProvider>
-      </QueryClientProvider>
-    );
-  }
 
   return (
     <QueryClientProvider client={queryClient}>

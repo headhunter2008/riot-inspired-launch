@@ -1,9 +1,13 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { PatchNotesPage } from "@/components/game/PatchNotesPage";
 
 export function LeagueDetailScreen() {
-  return (
-    <div className="min-h-screen bg-background ml-20">
+  const [activeTab, setActiveTab] = useState<'overview' | 'patchnotes'>('overview');
+
+  const overviewContent = (
+    <div className="min-h-screen bg-background">
       {/* Header with background video/image */}
       <div className="relative h-[60vh] overflow-hidden">
         {/* Video background placeholder */}
@@ -17,14 +21,28 @@ export function LeagueDetailScreen() {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         
         {/* Navigation tabs */}
-        <div className="absolute top-6 left-1/2 transform -translate-x-1/2">
-          <div className="flex space-x-8">
-            <button className="text-white font-medium border-b-2 border-primary pb-2">
+        <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-20">
+          <div className="flex space-x-8 glass-effect rounded-full px-6 py-3">
+            <button 
+              onClick={() => setActiveTab('overview')}
+              className={`font-bold transition-all duration-200 ${
+                activeTab === 'overview' 
+                  ? 'text-white border-b-2 border-primary pb-1' 
+                  : 'text-white/70 hover:text-white'
+              }`}
+            >
               Overview
             </button>
-            <button className="text-white/70 font-medium pb-2 hover:text-white">
+            <button 
+              onClick={() => setActiveTab('patchnotes')}
+              className={`font-medium transition-all duration-200 relative ${
+                activeTab === 'patchnotes' 
+                  ? 'text-white border-b-2 border-primary pb-1' 
+                  : 'text-white/70 hover:text-white'
+              }`}
+            >
               Patch Notes
-              <span className="ml-2 w-2 h-2 bg-primary rounded-full inline-block"></span>
+              <span className="ml-2 w-2 h-2 bg-primary rounded-full inline-block animate-pulse"></span>
             </button>
           </div>
         </div>
@@ -156,4 +174,6 @@ export function LeagueDetailScreen() {
       </div>
     </div>
   );
+
+  return activeTab === 'overview' ? overviewContent : <PatchNotesPage />;
 }
