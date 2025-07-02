@@ -42,22 +42,21 @@ const Index = () => {
   };
 
   return (
-    <div className="p-8 ml-20">
+    <div className="p-8 ml-20 gradient-hero min-h-screen">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-4xl font-bold text-foreground">Home</h1>
+        <h1 className="text-4xl font-bold text-foreground">Latest Patch Notes</h1>
       </div>
       
       {/* Latest Patch Notes Section */}
       <div className="mb-12">
-        <h2 className="text-2xl font-semibold text-foreground mb-6">Latest Patch Notes</h2>
-        <div className="bg-card rounded-lg p-6 border border-border max-w-md">
+        <div className="glass-card rounded-xl p-6 hover-lift max-w-md border-l-4 border-primary">
           <div className="flex items-center space-x-3 mb-4">
-            <div className="w-8 h-8 bg-primary rounded flex items-center justify-center">
-              <span className="text-white text-sm">🔴</span>
+            <div className="w-10 h-10 gradient-primary rounded-lg flex items-center justify-center animate-glow">
+              <span className="text-white text-sm font-bold">V</span>
             </div>
             <div>
-              <h3 className="text-primary font-bold">VALORANT Patch Notes 11.00</h3>
+              <h3 className="text-primary font-bold text-lg">VALORANT Patch Notes 11.00</h3>
               <p className="text-muted-foreground text-sm">June 24, 2025</p>
             </div>
           </div>
@@ -77,16 +76,31 @@ const Index = () => {
       </div>
 
       {/* Content Grid */}
-      <div className="grid grid-cols-4 gap-6">
+      <div className="grid grid-cols-4 gap-6 mb-16">
         {contentItems.map((item, index) => (
-          <div key={index} onClick={() => handleContentClick(item)} className="cursor-pointer">
-            <ContentCard
-              title={item.title}
-              category={item.category}
-              imageUrl={item.imageUrl}
-              tag={item.tag}
-              tagColor={item.tag === "MERCH" ? "bg-primary" : "bg-accent"}
-            />
+          <div key={index} onClick={() => handleContentClick(item)} className="cursor-pointer hover-lift">
+            <div className="glass-card rounded-xl overflow-hidden group transition-all duration-300">
+              <div className="aspect-[4/3] overflow-hidden">
+                <img 
+                  src={item.imageUrl} 
+                  alt={item.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className={`px-2 py-1 text-xs font-bold rounded-full ${
+                    item.tag === "MERCH" ? "gradient-primary text-white" : "bg-accent text-accent-foreground"
+                  }`}>
+                    {item.tag}
+                  </span>
+                </div>
+                <h3 className="font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-muted-foreground text-sm">{item.category}</p>
+              </div>
+            </div>
           </div>
         ))}
       </div>
@@ -95,22 +109,22 @@ const Index = () => {
       <div className="mt-16">
         <h2 className="text-2xl font-semibold text-foreground mb-8">Promos</h2>
         <div className="grid grid-cols-2 gap-6">
-          <div className="bg-green-600 rounded-lg p-8 text-white relative overflow-hidden">
+          <div className="glass-card rounded-xl p-8 text-white relative overflow-hidden hover-lift gradient-gaming">
             <div className="flex items-center space-x-4 mb-4">
-              <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
-                <span className="text-green-600 font-bold">R</span>
+              <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold">R</span>
               </div>
-              <div className="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center">
+              <div className="w-12 h-12 bg-black/30 backdrop-blur-sm rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold">G</span>
               </div>
             </div>
             <h3 className="text-xl font-bold mb-2">Get More from Riot Games with Xbox Game Pass</h3>
-            <p className="text-green-100">Riot Games joins forces with Xbox to bring our biggest titles to Game Pass Ultimate.</p>
+            <p className="text-white/90">Riot Games joins forces with Xbox to bring our biggest titles to Game Pass Ultimate.</p>
           </div>
           
-          <div className="bg-primary rounded-lg p-8 text-white relative overflow-hidden">
+          <div className="glass-card rounded-xl p-8 text-white relative overflow-hidden hover-lift gradient-primary">
             <h3 className="text-xl font-bold mb-2">Riot Mobile</h3>
-            <p className="text-red-100">Riot Mobile makes it easy to discover new content, stay informed about your favorite games, and connect with friends.</p>
+            <p className="text-white/90">Riot Mobile makes it easy to discover new content, stay informed about your favorite games, and connect with friends.</p>
           </div>
         </div>
       </div>

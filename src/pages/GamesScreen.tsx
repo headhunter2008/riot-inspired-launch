@@ -50,7 +50,7 @@ export function GamesScreen({ onGameSelect }: GamesScreenProps) {
   const [hoveredGame, setHoveredGame] = useState<string | null>(null);
 
   return (
-    <div className="p-8 ml-20">
+    <div className="p-8 ml-20 gradient-hero min-h-screen">
       <h1 className="text-4xl font-bold text-foreground mb-8">Games</h1>
       
       <div className="mb-8">
@@ -58,9 +58,9 @@ export function GamesScreen({ onGameSelect }: GamesScreenProps) {
         
         <div className="grid grid-cols-3 gap-6">
           {games.map((game) => (
-            <Card
+            <div
               key={game.id}
-              className={`relative overflow-hidden cursor-pointer group transition-all duration-300 hover:scale-105 ${game.backgroundImage} border-transparent hover:border-white/50`}
+              className={`glass-card relative overflow-hidden cursor-pointer group hover-lift ${game.backgroundImage} border border-border/50 hover:border-primary/50 rounded-xl`}
               onMouseEnter={() => setHoveredGame(game.id)}
               onMouseLeave={() => setHoveredGame(null)}
               onClick={() => onGameSelect(game.id)}
@@ -68,33 +68,37 @@ export function GamesScreen({ onGameSelect }: GamesScreenProps) {
               <div className="relative h-64 p-6 flex flex-col justify-end">
                 {/* Video placeholder when hovered */}
                 {hoveredGame === game.id && (
-                  <div className="absolute inset-0 bg-black/20">
+                  <div className="absolute inset-0 bg-black/30 backdrop-blur-sm rounded-xl">
                     <div className="w-full h-full flex items-center justify-center">
-                      <div className="text-white/70 text-sm">▶ Trailer Playing</div>
+                      <div className="text-white text-lg font-medium flex items-center gap-2">
+                        <span className="animate-pulse">▶</span> Trailer Playing
+                      </div>
                     </div>
                   </div>
                 )}
                 
                 {/* Game icon */}
                 <div className="absolute top-4 left-4">
-                  <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-                    <span className="text-sm">{game.icon}</span>
+                  <div className="w-10 h-10 glass-card rounded-lg flex items-center justify-center border border-white/20">
+                    <span className="text-lg">{game.icon}</span>
                   </div>
                 </div>
                 
                 {/* Install button */}
                 <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <div className="w-6 h-6 bg-white/20 rounded flex items-center justify-center">
-                    <span className="text-white text-xs">📥</span>
+                  <div className="w-8 h-8 gradient-primary rounded-lg flex items-center justify-center animate-glow">
+                    <span className="text-white text-sm font-bold">📥</span>
                   </div>
                 </div>
                 
                 {/* Game title */}
-                <div className="relative z-10">
-                  <h3 className="text-white font-bold text-xl">{game.title}</h3>
+                <div className="relative z-10 glass-card p-3 rounded-lg">
+                  <h3 className="text-white font-bold text-xl group-hover:text-primary transition-colors">
+                    {game.title}
+                  </h3>
                 </div>
               </div>
-            </Card>
+            </div>
           ))}
         </div>
       </div>
