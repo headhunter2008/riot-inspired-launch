@@ -154,7 +154,7 @@ export function RiotForgeDetailScreen() {
           </div>
           <div>
             <span className="text-muted-foreground">LAUNCH DATE</span>
-            <div className="text-foreground mt-1">2021</div>
+            <div className="text-foreground mt-1">2025</div>
           </div>
         </div>
       </div>
