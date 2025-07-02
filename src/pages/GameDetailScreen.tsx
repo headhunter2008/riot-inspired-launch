@@ -61,19 +61,6 @@ export function GameDetailScreen({
   const [activeTab, setActiveTab] = useState<'overview' | 'patchnotes'>('overview');
   const game = gameData[gameId] || gameData.valorant;
   return <div className="min-h-screen bg-gradient-to-br from-background via-background/95 to-gaming-purple/5">
-      {/* Navigation tabs - always visible */}
-      <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-20">
-        <div className="flex space-x-8 glass-effect rounded-full px-6 py-3">
-          <button onClick={() => setActiveTab('overview')} className={`font-bold transition-all duration-200 ${activeTab === 'overview' ? 'text-white border-b-2 border-primary pb-1' : 'text-white/70 hover:text-white'}`}>
-            Overview
-          </button>
-          <button onClick={() => setActiveTab('patchnotes')} className={`font-medium transition-all duration-200 relative ${activeTab === 'patchnotes' ? 'text-white border-b-2 border-primary pb-1' : 'text-white/70 hover:text-white'}`}>
-            Patch Notes
-            <span className="ml-2 w-2 h-2 bg-primary rounded-full inline-block animate-pulse"></span>
-          </button>
-        </div>
-      </div>
-
       {/* Content based on active tab */}
       {activeTab === 'patchnotes' ? <PatchNotesPage onOverviewClick={() => setActiveTab('overview')} /> : <div>
           {/* Header with background video/image */}
