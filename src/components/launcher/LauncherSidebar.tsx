@@ -96,13 +96,18 @@ export function LauncherSidebar({ currentPage, onPageChange, onGameSelect, onSet
                 "w-12 h-12 rounded-xl glass-card relative group border border-transparent transition-all duration-300 hover-lift",
                 isSelected
                   ? "gradient-primary text-white shadow-lg"
-                  : "text-sidebar-foreground/70 hover:text-sidebar-foreground hover:glass-card"
+                  : "text-sidebar-foreground/70 hover:text-sidebar-foreground hover:glass-card hover:border-primary/30"
               )}
               title={game.tooltip}
             >
               <div className="text-lg">
                 {game.symbol}
               </div>
+              {/* Green hover effect */}
+              <div className={cn(
+                "absolute inset-0 rounded-xl border-2 border-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300",
+                !isSelected && "group-hover:opacity-100"
+              )} />
               {/* Enhanced Tooltip */}
               <div className="absolute left-16 top-1/2 -translate-y-1/2 glass-card px-3 py-2 rounded-lg text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none z-50 border border-border/50">
                 <span className="text-foreground font-medium">{game.tooltip}</span>
