@@ -71,7 +71,7 @@ export function SettingsScreen({
                   <div>
                     <div className="flex items-center space-x-2">
                       <div className="w-3 h-3 bg-primary rounded-full" />
-                      <span className="text-foreground font-medium">Open Riot Client on startup</span>
+                      <span className="text-foreground font-medium">Open Rock Client on startup</span>
                       <span className="text-xs bg-muted px-2 py-1 rounded text-muted-foreground">
                         RECOMMENDED
                       </span>
