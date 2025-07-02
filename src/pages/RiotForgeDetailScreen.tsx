@@ -148,7 +148,7 @@ export function RiotForgeDetailScreen() {
               <div className="w-4 h-4 bg-primary rounded">
                 <span className="text-white text-xs">R</span>
               </div>
-              <span className="text-foreground">RIOT GAMES</span>
+              <span className="text-foreground">ROCK APPS</span>
             </div>
           </div>
           <div>
