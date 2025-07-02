@@ -48,9 +48,12 @@ export function TeamfightDetailScreen() {
         </div>
         
         {/* Install button */}
-        <div className="absolute top-6 left-6">
-          <Button size="lg" className="bg-primary hover:bg-primary/90 px-8 py-3 text-lg font-bold">
-            📥 Install
+        <div className="absolute top-8 left-8 z-20">
+          <Button size="lg" className="bg-primary hover:bg-primary/90 px-8 py-3 text-lg font-bold flex items-center space-x-3">
+            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z" />
+            </svg>
+            <span>Install</span>
           </Button>
         </div>
         

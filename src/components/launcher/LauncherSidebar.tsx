@@ -48,11 +48,11 @@ export function LauncherSidebar({ currentPage, onPageChange, onGameSelect, onSet
   };
 
   return (
-    <div className="w-20 bg-transparent backdrop-blur-sm flex flex-col h-screen fixed left-0 top-0 border-r border-white/10">
+    <div className="w-24 bg-transparent backdrop-blur-sm flex flex-col h-screen fixed left-0 top-0 border-r border-white/10">
       {/* Logo/Brand area */}
       <div className="px-4 pt-6 mb-8">
-        <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-          <span className="text-white font-bold text-lg">R</span>
+        <div className="w-14 h-14 bg-primary rounded-lg flex items-center justify-center">
+          <span className="text-white font-bold text-xl">R</span>
         </div>
       </div>
 
@@ -65,15 +65,15 @@ export function LauncherSidebar({ currentPage, onPageChange, onGameSelect, onSet
             size="icon"
             onClick={() => handlePageChange(item.label.toLowerCase())}
             className={cn(
-              "w-14 h-14 rounded-xl flex flex-col items-center justify-center group relative border border-transparent transition-all duration-200 shadow-lg",
+              "w-16 h-16 rounded-xl flex flex-col items-center justify-center group relative border border-transparent transition-all duration-200 shadow-lg",
               currentPage === item.label.toLowerCase()
                 ? "bg-primary/20 text-primary border-primary/50 backdrop-blur-sm" 
                 : "text-white/70 hover:text-white hover:bg-primary/10 hover:border-primary/30 backdrop-blur-sm"
             )}
           >
-            <item.icon className="h-7 w-7" />
+            <item.icon className="h-8 w-8" />
             {currentPage === item.label.toLowerCase() && (
-              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary rounded-r" />
+              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-10 bg-primary rounded-r" />
             )}
           </Button>
         ))}
@@ -93,22 +93,22 @@ export function LauncherSidebar({ currentPage, onPageChange, onGameSelect, onSet
               size="icon"
               onClick={() => handleGameSelect(gameId)}
               className={cn(
-                "w-14 h-14 rounded-xl relative group border border-transparent transition-all duration-200 shadow-lg",
+                "w-16 h-16 rounded-xl relative group border border-transparent transition-all duration-200 shadow-lg",
                 isSelected
                   ? "bg-primary/20 text-primary border-primary/50 backdrop-blur-sm"
                   : "text-white/70 hover:text-white hover:bg-primary/10 hover:border-primary/30 backdrop-blur-sm"
               )}
               title={game.tooltip}
             >
-              <div className="text-xl">
+              <div className="text-2xl">
                 {game.symbol}
               </div>
               {/* Tooltip on hover */}
-              <div className="absolute left-16 top-1/2 -translate-y-1/2 bg-popover text-popover-foreground px-2 py-1 rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50">
+              <div className="absolute left-20 top-1/2 -translate-y-1/2 bg-popover text-popover-foreground px-2 py-1 rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50">
                 {game.tooltip}
               </div>
               {isSelected && (
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary rounded-r" />
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-10 bg-primary rounded-r" />
               )}
             </Button>
           );
@@ -121,12 +121,12 @@ export function LauncherSidebar({ currentPage, onPageChange, onGameSelect, onSet
           variant="ghost"
           size="icon"
           onClick={onSettingsOpen}
-          className="w-14 h-14 rounded-xl text-white/70 hover:text-white hover:bg-primary/10 hover:border-primary/30 border border-transparent transition-all duration-200 relative group shadow-lg backdrop-blur-sm"
+          className="w-16 h-16 rounded-xl text-white/70 hover:text-white hover:bg-primary/10 hover:border-primary/30 border border-transparent transition-all duration-200 relative group shadow-lg backdrop-blur-sm"
           title="Settings"
         >
-          <User className="h-7 w-7" />
+          <User className="h-8 w-8" />
           {/* Tooltip on hover */}
-          <div className="absolute left-16 top-1/2 -translate-y-1/2 bg-popover text-popover-foreground px-2 py-1 rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50">
+          <div className="absolute left-20 top-1/2 -translate-y-1/2 bg-popover text-popover-foreground px-2 py-1 rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50">
             Settings
           </div>
         </Button>

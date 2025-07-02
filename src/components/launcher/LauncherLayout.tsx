@@ -27,7 +27,7 @@ export function LauncherLayout({
         onSettingsOpen={onSettingsOpen}
       />
       
-      <div className="flex-1 flex flex-col h-full ml-20">
+      <div className="flex-1 flex flex-col h-full ml-24">
         {/* Minimal header with only window controls */}
         <div className="h-8 bg-transparent flex items-center justify-end px-4 flex-shrink-0 absolute top-0 right-0 z-50">
           <div className="flex items-center space-x-1">

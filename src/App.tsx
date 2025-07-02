@@ -29,6 +29,8 @@ const App = () => {
     setSelectedGame(null);
   };
 
+  const handleSettingsOpen = () => setShowSettings(true);
+
   if (currentScreen === 'splash') {
     return (
       <QueryClientProvider client={queryClient}>
@@ -46,27 +48,24 @@ const App = () => {
         <Toaster />
         <Sonner />
         {selectedGame ? (
-          selectedGame === "valorant" ? (
-            <GameDetailScreen gameId={selectedGame} onGameSelect={handleGameSelect} onSettingsOpen={() => setShowSettings(true)} />
-          ) : (
-            <LauncherLayout
-              currentPage={currentPage}
-              onPageChange={handlePageChange}
-              onGameSelect={handleGameSelect}
-              onSettingsOpen={() => setShowSettings(true)}
-            >
-              {selectedGame === "league-of-legends" && <LeagueDetailScreen />}
-              {selectedGame === "teamfight-tactics" && <TeamfightDetailScreen />}
-              {selectedGame === "riot-forge" && <RiotForgeDetailScreen />}
-              {selectedGame && !["valorant", "league-of-legends", "teamfight-tactics", "riot-forge"].includes(selectedGame) && <GameDetailScreen gameId={selectedGame} />}
-            </LauncherLayout>
-          )
+          <LauncherLayout
+            currentPage=""
+            onPageChange={handlePageChange}
+            onGameSelect={handleGameSelect}
+            onSettingsOpen={handleSettingsOpen}
+          >
+            {selectedGame === "valorant" && <GameDetailScreen gameId={selectedGame} onGameSelect={handleGameSelect} onSettingsOpen={handleSettingsOpen} />}
+            {selectedGame === "league-of-legends" && <LeagueDetailScreen />}
+            {selectedGame === "teamfight-tactics" && <TeamfightDetailScreen />}
+            {selectedGame === "riot-forge" && <RiotForgeDetailScreen />}
+            {selectedGame && !["valorant", "league-of-legends", "teamfight-tactics", "riot-forge"].includes(selectedGame) && <GameDetailScreen gameId={selectedGame} onGameSelect={handleGameSelect} onSettingsOpen={handleSettingsOpen} />}
+          </LauncherLayout>
         ) : (
           <LauncherLayout
             currentPage={currentPage}
             onPageChange={handlePageChange}
             onGameSelect={handleGameSelect}
-            onSettingsOpen={() => setShowSettings(true)}
+            onSettingsOpen={handleSettingsOpen}
           >
             {currentPage === 'home' && <Index />}
             {currentPage === 'library' && <GamesScreen onGameSelect={handleGameSelect} />}
