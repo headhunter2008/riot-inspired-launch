@@ -90,7 +90,7 @@ export function GameDetailScreen({
             
             {/* Install button */}
             <div className="absolute top-8 left-8 z-20">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 flex items-center space-x-3 py-[27px] px-[37px] text-2xl rounded-none font-bold">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 flex items-center space-x-3 py-[27px] px-[37px] rounded-lg font-bold text-2xl">
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z" />
                 </svg>
