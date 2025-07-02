@@ -100,9 +100,7 @@ export function SettingsScreen({
                         RECOMMENDED
                       </span>
                     </div>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      Riot Client will stay running, which helps launching games faster and keeps your games up to date automatically.
-                    </p>
+                    <p className="text-sm text-muted-foreground mt-1">Rock Client will stay running, which helps launching apps faster and keeps your apps up to date automatically.</p>
                   </div>
                 </div>
                 
