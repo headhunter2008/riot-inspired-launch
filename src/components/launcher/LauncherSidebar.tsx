@@ -36,6 +36,15 @@ export function LauncherSidebar({ currentPage, onPageChange, onGameSelect, onSet
   const handleGameSelect = (gameId: string) => {
     setSelectedGame(gameId);
     onGameSelect?.(gameId);
+    // Clear page selection when game is selected
+    if (currentPage === "home" || currentPage === "library") {
+      // Keep current page
+    }
+  };
+
+  const handlePageChange = (page: string) => {
+    setSelectedGame(null); // Clear game selection when page is selected
+    onPageChange(page);
   };
 
   return (
@@ -54,7 +63,7 @@ export function LauncherSidebar({ currentPage, onPageChange, onGameSelect, onSet
             key={index}
             variant="ghost"
             size="icon"
-            onClick={() => onPageChange(item.label.toLowerCase())}
+            onClick={() => handlePageChange(item.label.toLowerCase())}
             className={cn(
               "w-12 h-12 rounded-lg flex flex-col items-center justify-center group relative border border-transparent transition-all duration-200",
               currentPage === item.label.toLowerCase()

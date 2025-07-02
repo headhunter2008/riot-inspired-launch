@@ -125,17 +125,8 @@ export function SettingsScreen({ onClose }: SettingsScreenProps) {
           </div>
 
           {/* Footer */}
-          <div className="absolute bottom-8 left-8 space-y-2">
-            <div className="text-xs text-muted-foreground underline cursor-pointer">
-              TERMS OF SERVICE
-            </div>
-            <div className="text-xs text-muted-foreground underline cursor-pointer">
-              THIRD PARTY
-            </div>
-            <div className="text-xs text-muted-foreground underline cursor-pointer">
-              PRIVACY NOTICE
-            </div>
-            <div className="text-xs text-muted-foreground mt-4">
+          <div className="absolute bottom-8 left-8">
+            <div className="text-xs text-muted-foreground">
               v112.0.1.3343
             </div>
           </div>

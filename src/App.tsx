@@ -8,6 +8,9 @@ import { LoginScreen } from "./pages/LoginScreen";
 import { SettingsScreen } from "./pages/SettingsScreen";
 import { GamesScreen } from "./pages/GamesScreen";
 import { GameDetailScreen } from "./pages/GameDetailScreen";
+import { LeagueDetailScreen } from "./pages/LeagueDetailScreen";
+import { TeamfightDetailScreen } from "./pages/TeamfightDetailScreen";
+import { RiotForgeDetailScreen } from "./pages/RiotForgeDetailScreen";
 import { LauncherLayout } from "./components/launcher/LauncherLayout";
 import Index from "./pages/Index";
 
@@ -59,7 +62,11 @@ const App = () => {
             onGameSelect={handleGameSelect}
             onSettingsOpen={() => setShowSettings(true)}
           >
-            <GameDetailScreen gameId={selectedGame} />
+            {selectedGame === "valorant" && <GameDetailScreen gameId={selectedGame} />}
+            {selectedGame === "league-of-legends" && <LeagueDetailScreen />}
+            {selectedGame === "teamfight-tactics" && <TeamfightDetailScreen />}
+            {selectedGame === "riot-forge" && <RiotForgeDetailScreen />}
+            {selectedGame && !["valorant", "league-of-legends", "teamfight-tactics", "riot-forge"].includes(selectedGame) && <GameDetailScreen gameId={selectedGame} />}
           </LauncherLayout>
         ) : (
           <LauncherLayout
