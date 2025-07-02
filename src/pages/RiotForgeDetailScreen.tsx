@@ -1,18 +1,13 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { PatchNotesRiotForge } from "@/components/game/PatchNotesRiotForge";
-
 export function RiotForgeDetailScreen() {
   const [activeTab, setActiveTab] = useState<'overview' | 'patchnotes'>('overview');
-  
   if (activeTab === 'patchnotes') {
     return <PatchNotesRiotForge onOverviewClick={() => setActiveTab('overview')} />;
   }
-  
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background/95 to-gaming-purple/5">
+  return <div className="min-h-screen bg-gradient-to-br from-background via-background/95 to-gaming-purple/5">
       {/* Header with background video/image */}
       <div className="relative h-[70vh] overflow-hidden">
         {/* Video background placeholder */}
@@ -28,24 +23,10 @@ export function RiotForgeDetailScreen() {
         {/* Navigation tabs */}
         <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-20">
           <div className="flex space-x-8 glass-effect rounded-full px-6 py-3">
-            <button 
-              onClick={() => setActiveTab('overview')} 
-              className={`font-medium transition-all duration-200 ${
-                activeTab === 'overview' 
-                  ? 'text-white border-b-2 border-primary pb-1' 
-                  : 'text-white/70 hover:text-white'
-              }`}
-            >
+            <button onClick={() => setActiveTab('overview')} className={`font-medium transition-all duration-200 ${activeTab === 'overview' ? 'text-white border-b-2 border-primary pb-1' : 'text-white/70 hover:text-white'}`}>
               Overview
             </button>
-            <button 
-              onClick={() => setActiveTab('patchnotes')} 
-              className={`font-medium transition-all duration-200 relative ${
-                activeTab !== 'overview' 
-                  ? 'text-white border-b-2 border-primary pb-1' 
-                  : 'text-white/70 hover:text-white'
-              }`}
-            >
+            <button onClick={() => setActiveTab('patchnotes')} className={`font-medium transition-all duration-200 relative ${activeTab !== 'overview' ? 'text-white border-b-2 border-primary pb-1' : 'text-white/70 hover:text-white'}`}>
               Patch Notes
               <span className="ml-2 w-2 h-2 bg-primary rounded-full inline-block animate-pulse"></span>
             </button>
@@ -158,7 +139,7 @@ export function RiotForgeDetailScreen() {
               <div className="w-4 h-4 bg-primary rounded">
                 <span className="text-white text-xs">R</span>
               </div>
-              <span className="text-foreground">RIOT GAMES</span>
+              <span className="text-foreground">ROCK APP</span>
             </div>
           </div>
           <div>
@@ -176,6 +157,5 @@ export function RiotForgeDetailScreen() {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 }
