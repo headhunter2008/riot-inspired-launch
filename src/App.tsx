@@ -56,18 +56,21 @@ const App = () => {
         <Toaster />
         <Sonner />
         {selectedGame ? (
-          <LauncherLayout
-            currentPage={currentPage}
-            onPageChange={handlePageChange}
-            onGameSelect={handleGameSelect}
-            onSettingsOpen={() => setShowSettings(true)}
-          >
-            {selectedGame === "valorant" && <GameDetailScreen gameId={selectedGame} />}
-            {selectedGame === "league-of-legends" && <LeagueDetailScreen />}
-            {selectedGame === "teamfight-tactics" && <TeamfightDetailScreen />}
-            {selectedGame === "riot-forge" && <RiotForgeDetailScreen />}
-            {selectedGame && !["valorant", "league-of-legends", "teamfight-tactics", "riot-forge"].includes(selectedGame) && <GameDetailScreen gameId={selectedGame} />}
-          </LauncherLayout>
+          selectedGame === "valorant" ? (
+            <GameDetailScreen gameId={selectedGame} onGameSelect={handleGameSelect} onSettingsOpen={() => setShowSettings(true)} />
+          ) : (
+            <LauncherLayout
+              currentPage={currentPage}
+              onPageChange={handlePageChange}
+              onGameSelect={handleGameSelect}
+              onSettingsOpen={() => setShowSettings(true)}
+            >
+              {selectedGame === "league-of-legends" && <LeagueDetailScreen />}
+              {selectedGame === "teamfight-tactics" && <TeamfightDetailScreen />}
+              {selectedGame === "riot-forge" && <RiotForgeDetailScreen />}
+              {selectedGame && !["valorant", "league-of-legends", "teamfight-tactics", "riot-forge"].includes(selectedGame) && <GameDetailScreen gameId={selectedGame} />}
+            </LauncherLayout>
+          )
         ) : (
           <LauncherLayout
             currentPage={currentPage}

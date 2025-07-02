@@ -48,7 +48,7 @@ export function LauncherSidebar({ currentPage, onPageChange, onGameSelect, onSet
   };
 
   return (
-    <div className="w-20 bg-sidebar flex flex-col h-screen fixed left-0 top-0">
+    <div className="w-20 bg-sidebar/80 backdrop-blur-sm flex flex-col h-screen fixed left-0 top-0 border-r border-border/30">
       {/* Logo/Brand area */}
       <div className="px-4 pt-6 mb-8">
         <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
@@ -68,7 +68,7 @@ export function LauncherSidebar({ currentPage, onPageChange, onGameSelect, onSet
               "w-12 h-12 rounded-lg flex flex-col items-center justify-center group relative border border-transparent transition-all duration-200",
               currentPage === item.label.toLowerCase()
                 ? "bg-sidebar-accent text-primary border-primary/50" 
-                : "text-sidebar-foreground/70 hover:text-sidebar-foreground hover:bg-white/25 hover:border-white/50"
+                : "text-sidebar-foreground/70 hover:text-sidebar-foreground hover:bg-green-500/20 hover:border-green-500/50"
             )}
           >
             <item.icon className="h-6 w-6" />
@@ -96,7 +96,7 @@ export function LauncherSidebar({ currentPage, onPageChange, onGameSelect, onSet
                 "w-12 h-12 rounded-lg relative group border border-transparent transition-all duration-200",
                 isSelected
                   ? "bg-sidebar-accent text-primary border-primary/50"
-                  : "text-sidebar-foreground/70 hover:text-sidebar-foreground hover:bg-white/25 hover:border-white/50"
+                  : "text-sidebar-foreground/70 hover:text-sidebar-foreground hover:bg-green-500/20 hover:border-green-500/50"
               )}
               title={game.tooltip}
             >
@@ -121,7 +121,7 @@ export function LauncherSidebar({ currentPage, onPageChange, onGameSelect, onSet
           variant="ghost"
           size="icon"
           onClick={onSettingsOpen}
-          className="w-12 h-12 rounded-lg text-sidebar-foreground/70 hover:text-sidebar-foreground hover:bg-white/25 hover:border-white/50 border border-transparent transition-all duration-200 relative group"
+          className="w-12 h-12 rounded-lg text-sidebar-foreground/70 hover:text-sidebar-foreground hover:bg-green-500/20 hover:border-green-500/50 border border-transparent transition-all duration-200 relative group"
           title="Settings"
         >
           <User className="h-6 w-6" />

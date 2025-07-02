@@ -1,9 +1,14 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
+import { GameLayout } from "@/components/game/GameLayout";
+import { PatchNotesPage } from "@/components/game/PatchNotesPage";
 
 interface GameDetailScreenProps {
   gameId: string;
+  onGameSelect?: (gameId: string) => void;
+  onSettingsOpen?: () => void;
 }
 
 const gameData: Record<string, any> = {
@@ -51,11 +56,12 @@ const gameData: Record<string, any> = {
   }
 };
 
-export function GameDetailScreen({ gameId }: GameDetailScreenProps) {
+export function GameDetailScreen({ gameId, onGameSelect, onSettingsOpen }: GameDetailScreenProps) {
+  const [activeTab, setActiveTab] = useState<'overview' | 'patchnotes'>('overview');
   const game = gameData[gameId] || gameData.valorant;
 
-  return (
-    <div className="min-h-screen bg-background ml-16">
+  const content = (
+    <div className="min-h-screen bg-gradient-to-br from-background via-background/95 to-gaming-purple/5">
       {/* Header with background video/image */}
       <div className="relative h-[70vh] overflow-hidden">
         {/* Video background placeholder */}
@@ -71,10 +77,24 @@ export function GameDetailScreen({ gameId }: GameDetailScreenProps) {
         {/* Navigation tabs */}
         <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-20">
           <div className="flex space-x-8 glass-effect rounded-full px-6 py-3">
-            <button className="text-white font-bold border-b-2 border-primary pb-1 transition-all duration-200">
+            <button 
+              onClick={() => setActiveTab('overview')}
+              className={`font-bold transition-all duration-200 ${
+                activeTab === 'overview' 
+                  ? 'text-white border-b-2 border-primary pb-1' 
+                  : 'text-white/70 hover:text-white'
+              }`}
+            >
               Overview
             </button>
-            <button className="text-white/70 font-medium hover:text-white transition-all duration-200 relative">
+            <button 
+              onClick={() => setActiveTab('patchnotes')}
+              className={`font-medium transition-all duration-200 relative ${
+                activeTab === 'patchnotes' 
+                  ? 'text-white border-b-2 border-primary pb-1' 
+                  : 'text-white/70 hover:text-white'
+              }`}
+            >
               Patch Notes
               <span className="ml-2 w-2 h-2 bg-primary rounded-full inline-block animate-pulse"></span>
             </button>
@@ -281,5 +301,14 @@ export function GameDetailScreen({ gameId }: GameDetailScreenProps) {
         )}
       </div>
     </div>
+  );
+
+  return (
+    <GameLayout 
+      onGameSelect={onGameSelect}
+      onSettingsOpen={onSettingsOpen || (() => {})}
+    >
+      {activeTab === 'overview' ? content : <PatchNotesPage />}
+    </GameLayout>
   );
 }
