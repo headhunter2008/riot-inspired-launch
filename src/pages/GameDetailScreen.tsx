@@ -4,13 +4,11 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { LauncherLayout } from "@/components/launcher/LauncherLayout";
 import { PatchNotesPage } from "@/components/game/PatchNotesPage";
-
 interface GameDetailScreenProps {
   gameId: string;
   onGameSelect?: (gameId: string) => void;
   onSettingsOpen?: () => void;
 }
-
 const gameData: Record<string, any> = {
   valorant: {
     title: "VALORANT",
@@ -55,34 +53,21 @@ const gameData: Record<string, any> = {
     releaseDate: "Oct 27, 2009"
   }
 };
-
-export function GameDetailScreen({ gameId, onGameSelect, onSettingsOpen }: GameDetailScreenProps) {
+export function GameDetailScreen({
+  gameId,
+  onGameSelect,
+  onSettingsOpen
+}: GameDetailScreenProps) {
   const [activeTab, setActiveTab] = useState<'overview' | 'patchnotes'>('overview');
   const game = gameData[gameId] || gameData.valorant;
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background/95 to-gaming-purple/5">
+  return <div className="min-h-screen bg-gradient-to-br from-background via-background/95 to-gaming-purple/5">
       {/* Navigation tabs - always visible */}
       <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-20">
         <div className="flex space-x-8 glass-effect rounded-full px-6 py-3">
-          <button 
-            onClick={() => setActiveTab('overview')}
-            className={`font-bold transition-all duration-200 ${
-              activeTab === 'overview' 
-                ? 'text-white border-b-2 border-primary pb-1' 
-                : 'text-white/70 hover:text-white'
-            }`}
-          >
+          <button onClick={() => setActiveTab('overview')} className={`font-bold transition-all duration-200 ${activeTab === 'overview' ? 'text-white border-b-2 border-primary pb-1' : 'text-white/70 hover:text-white'}`}>
             Overview
           </button>
-          <button 
-            onClick={() => setActiveTab('patchnotes')}
-            className={`font-medium transition-all duration-200 relative ${
-              activeTab === 'patchnotes'
-                ? 'text-white border-b-2 border-primary pb-1'
-                : 'text-white/70 hover:text-white'
-            }`}
-          >
+          <button onClick={() => setActiveTab('patchnotes')} className={`font-medium transition-all duration-200 relative ${activeTab === 'patchnotes' ? 'text-white border-b-2 border-primary pb-1' : 'text-white/70 hover:text-white'}`}>
             Patch Notes
             <span className="ml-2 w-2 h-2 bg-primary rounded-full inline-block animate-pulse"></span>
           </button>
@@ -90,10 +75,7 @@ export function GameDetailScreen({ gameId, onGameSelect, onSettingsOpen }: GameD
       </div>
 
       {/* Content based on active tab */}
-      {activeTab === 'patchnotes' ? (
-        <PatchNotesPage />
-      ) : (
-        <div>
+      {activeTab === 'patchnotes' ? <PatchNotesPage /> : <div>
           {/* Header with background video/image */}
           <div className="relative h-[70vh] overflow-hidden">
             {/* Video background placeholder */}
@@ -108,7 +90,7 @@ export function GameDetailScreen({ gameId, onGameSelect, onSettingsOpen }: GameD
             
             {/* Install button */}
             <div className="absolute top-8 left-8 z-20">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 px-8 py-3 text-lg font-bold flex items-center space-x-3">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 flex items-center space-x-3 py-[27px] px-[37px] text-2xl rounded-none font-bold">
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z" />
                 </svg>
@@ -147,28 +129,23 @@ export function GameDetailScreen({ gameId, onGameSelect, onSettingsOpen }: GameD
                 </svg>
                 <span className="font-bold text-foreground">Windows</span>
               </div>
-              {game.platforms?.includes("PlayStation®5") && (
-                <div className="border border-border hover-glow px-6 py-3 rounded-lg flex items-center space-x-3 transition-all duration-200 hover:bg-accent/20">
+              {game.platforms?.includes("PlayStation®5") && <div className="border border-border hover-glow px-6 py-3 rounded-lg flex items-center space-x-3 transition-all duration-200 hover:bg-accent/20">
                   <svg className="w-5 h-5 text-muted-foreground" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2Z" />
                   </svg>
                   <span className="font-medium text-muted-foreground">PlayStation®5</span>
-                </div>
-              )}
-              {game.platforms?.includes("Xbox Series X|S") && (
-                <div className="border border-border hover-glow px-6 py-3 rounded-lg flex items-center space-x-3 transition-all duration-200 hover:bg-accent/20">
+                </div>}
+              {game.platforms?.includes("Xbox Series X|S") && <div className="border border-border hover-glow px-6 py-3 rounded-lg flex items-center space-x-3 transition-all duration-200 hover:bg-accent/20">
                   <svg className="w-5 h-5 text-muted-foreground" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2Z" />
                   </svg>
                   <span className="font-medium text-muted-foreground">Xbox Series X|S</span>
-                </div>
-              )}
+                </div>}
             </div>
           </div>
           
           {/* System Requirements */}
-          {game.systemRequirements && (
-            <div className="px-8 py-8">
+          {game.systemRequirements && <div className="px-8 py-8">
               <h3 className="text-2xl font-bold riot-title mb-8">System Requirements</h3>
               
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -260,8 +237,7 @@ export function GameDetailScreen({ gameId, onGameSelect, onSettingsOpen }: GameD
                   SHOW MORE ⌄
                 </button>
               </div>
-            </div>
-          )}
+            </div>}
           
           {/* Additional Details */}
           <div className="px-8 py-6">
@@ -296,17 +272,13 @@ export function GameDetailScreen({ gameId, onGameSelect, onSettingsOpen }: GameD
               </div>
             </div>
             
-            {game.rating && (
-              <div className="mt-6">
+            {game.rating && <div className="mt-6">
                 <div className="w-12 h-16 bg-orange-500 rounded flex flex-col items-center justify-center text-white">
                   <span className="text-xs">PEGI</span>
                   <span className="text-lg font-bold">{game.rating}</span>
                 </div>
-              </div>
-            )}
+              </div>}
           </div>
-        </div>
-      )}
-    </div>
-  );
+        </div>}
+    </div>;
 }
