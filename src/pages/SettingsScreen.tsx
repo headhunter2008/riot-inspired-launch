@@ -19,7 +19,7 @@ export function SettingsScreen({
               <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">
                 <span className="text-xs font-bold text-black">●</span>
               </div>
-              <span className="text-foreground font-medium">RIOT CLIENT</span>
+              <span className="text-foreground font-medium">ROCK CLIENT</span>
             </div>
           </div>
         </div>
