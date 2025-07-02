@@ -63,7 +63,7 @@ export function GameDetailScreen({ gameId, onGameSelect, onSettingsOpen }: GameD
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background/95 to-gaming-purple/5">
       {/* Navigation tabs - always visible */}
-      <div className="sticky top-8 left-1/2 transform -translate-x-1/2 z-20 flex justify-center">
+      <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-20">
         <div className="flex space-x-8 glass-effect rounded-full px-6 py-3">
           <button 
             onClick={() => setActiveTab('overview')}
