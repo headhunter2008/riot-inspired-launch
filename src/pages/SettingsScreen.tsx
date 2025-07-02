@@ -4,14 +4,13 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { X } from "lucide-react";
-
 interface SettingsScreenProps {
   onClose: () => void;
 }
-
-export function SettingsScreen({ onClose }: SettingsScreenProps) {
-  return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+export function SettingsScreen({
+  onClose
+}: SettingsScreenProps) {
+  return <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
       <div className="bg-background w-full max-w-4xl h-[80vh] rounded-lg overflow-hidden flex">
         {/* Sidebar */}
         <div className="w-80 bg-muted/30 p-6">
@@ -33,14 +32,9 @@ export function SettingsScreen({ onClose }: SettingsScreenProps) {
               <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-sm">R</span>
               </div>
-              <h1 className="text-2xl font-bold text-foreground">Riot Client - General</h1>
+              <h1 className="text-2xl font-bold text-foreground">Rock Client - General</h1>
             </div>
-            <Button 
-              variant="ghost" 
-              size="icon"
-              onClick={onClose}
-              className="text-muted-foreground hover:text-foreground"
-            >
+            <Button variant="ghost" size="icon" onClick={onClose} className="text-muted-foreground hover:text-foreground">
               <X className="h-6 w-6" />
             </Button>
           </div>
@@ -132,6 +126,5 @@ export function SettingsScreen({ onClose }: SettingsScreenProps) {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 }
