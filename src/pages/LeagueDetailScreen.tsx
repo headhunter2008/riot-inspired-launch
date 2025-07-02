@@ -1,18 +1,13 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { LeaguePatchNotes } from "@/components/game/LeaguePatchNotes";
-
 export function LeagueDetailScreen() {
   const [activeTab, setActiveTab] = useState<'overview' | 'patchnotes'>('overview');
-  
   if (activeTab === 'patchnotes') {
     return <LeaguePatchNotes onOverviewClick={() => setActiveTab('overview')} />;
   }
-  
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background/95 to-gaming-purple/5">
+  return <div className="min-h-screen bg-gradient-to-br from-background via-background/95 to-gaming-purple/5">
       {/* Header with background video/image */}
       <div className="relative h-[70vh] overflow-hidden">
         {/* Video background placeholder */}
@@ -28,24 +23,10 @@ export function LeagueDetailScreen() {
         {/* Navigation tabs */}
         <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-20">
           <div className="flex space-x-8 glass-effect rounded-full px-6 py-3">
-            <button 
-              onClick={() => setActiveTab('overview')} 
-              className={`font-medium transition-all duration-200 ${
-                activeTab === 'overview' 
-                  ? 'text-white border-b-2 border-primary pb-1' 
-                  : 'text-white/70 hover:text-white'
-              }`}
-            >
+            <button onClick={() => setActiveTab('overview')} className={`font-medium transition-all duration-200 ${activeTab === 'overview' ? 'text-white border-b-2 border-primary pb-1' : 'text-white/70 hover:text-white'}`}>
               Overview
             </button>
-            <button 
-              onClick={() => setActiveTab('patchnotes')} 
-              className={`font-medium transition-all duration-200 relative ${
-                activeTab !== 'overview' 
-                  ? 'text-white border-b-2 border-primary pb-1' 
-                  : 'text-white/70 hover:text-white'
-              }`}
-            >
+            <button onClick={() => setActiveTab('patchnotes')} className={`font-medium transition-all duration-200 relative ${activeTab !== 'overview' ? 'text-white border-b-2 border-primary pb-1' : 'text-white/70 hover:text-white'}`}>
               Patch Notes
               <span className="ml-2 w-2 h-2 bg-primary rounded-full inline-block animate-pulse"></span>
             </button>
@@ -64,7 +45,7 @@ export function LeagueDetailScreen() {
     
         {/* Game title and trailer info */}
         <div className="absolute bottom-12 left-8 text-white z-10">
-          <h1 className="text-7xl font-black mb-6 tracking-tight">League of Legends</h1>
+          <h1 className="text-7xl font-black mb-6 tracking-tight">Ascend</h1>
           <h2 className="text-2xl font-semibold mb-4 text-white/90">Welcome to the Rift</h2>
           <p className="text-lg text-white/80 max-w-lg leading-relaxed mb-6">Join millions of players in the most competitive MOBA in the world. Master your champion and climb the ranked ladder.</p>
           
@@ -195,6 +176,5 @@ export function LeagueDetailScreen() {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 }
