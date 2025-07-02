@@ -42,7 +42,7 @@ export function LeagueDetailScreen() {
         
         {/* Game title and trailer info */}
         <div className="absolute bottom-8 left-8 text-white">
-          <h1 className="text-6xl font-bold mb-4">League of Legends</h1>
+          <h1 className="font-bold mb-4 text-7xl">League of Legends</h1>
           <h2 className="text-xl font-semibold mb-2">Welcome to the Rift</h2>
           <p className="text-lg opacity-90 max-w-md">Join millions of players in the most competitive MOBA in the world. Master your champion and climb the ranked ladder.</p>
           
