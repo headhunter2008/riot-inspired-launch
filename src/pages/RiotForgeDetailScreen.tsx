@@ -131,7 +131,7 @@ export function RiotForgeDetailScreen() {
         <div className="grid grid-cols-4 gap-8 text-sm">
           <div>
             <span className="text-muted-foreground">WEBSITE</span>
-            <div className="text-foreground mt-1">riotgames.com/forge</div>
+            <div className="text-foreground mt-1">rockapp.com/beam</div>
           </div>
           <div>
             <span className="text-muted-foreground">DEVELOPER</span>
