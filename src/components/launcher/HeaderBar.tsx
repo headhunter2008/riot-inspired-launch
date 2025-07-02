@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { User, X } from "lucide-react";
+import { User, X, Minus, Settings } from "lucide-react";
 
 interface HeaderBarProps {
   onSettingsOpen: () => void;
@@ -7,7 +7,7 @@ interface HeaderBarProps {
 
 export function HeaderBar({ onSettingsOpen }: HeaderBarProps) {
   return (
-    <div className="h-12 bg-background border-b border-border flex items-center justify-between px-4">
+    <div className="h-12 bg-background border-b border-border flex items-center justify-between px-4 flex-shrink-0">
       {/* Left side - can be empty or have breadcrumbs */}
       <div />
 
@@ -18,8 +18,21 @@ export function HeaderBar({ onSettingsOpen }: HeaderBarProps) {
           <span className="text-foreground text-sm">1</span>
         </div>
         
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          className="h-8 w-8"
+          onClick={onSettingsOpen}
+        >
+          <Settings className="h-4 w-4 text-primary" />
+        </Button>
+
         <Button variant="ghost" size="icon" className="h-8 w-8">
           <User className="h-4 w-4" />
+        </Button>
+
+        <Button variant="ghost" size="icon" className="h-8 w-8">
+          <Minus className="h-4 w-4" />
         </Button>
 
         <Button variant="ghost" size="icon" className="h-8 w-8">

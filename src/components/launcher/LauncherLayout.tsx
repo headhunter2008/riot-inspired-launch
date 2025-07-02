@@ -18,14 +18,15 @@ export function LauncherLayout({
   onSettingsOpen 
 }: LauncherLayoutProps) {
   return (
-    <div className="min-h-screen bg-background flex">
+    <div className="h-screen w-screen bg-background flex overflow-hidden">
       <LauncherSidebar 
         currentPage={currentPage}
         onPageChange={onPageChange}
         onGameSelect={onGameSelect}
+        onSettingsOpen={onSettingsOpen}
       />
       
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col h-full">
         <HeaderBar onSettingsOpen={onSettingsOpen} />
         
         <main className="flex-1 overflow-auto">

@@ -55,7 +55,7 @@ export function GameDetailScreen({ gameId }: GameDetailScreenProps) {
   const game = gameData[gameId] || gameData.valorant;
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background ml-20">
       {/* Header with background video/image */}
       <div className="relative h-[60vh] overflow-hidden">
         {/* Video background placeholder */}
