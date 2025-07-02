@@ -1,30 +1,25 @@
 import { useEffect, useState } from "react";
 import { Progress } from "@/components/ui/progress";
-
 interface SplashScreenProps {
   onComplete: () => void;
 }
-
-export function SplashScreen({ onComplete }: SplashScreenProps) {
+export function SplashScreen({
+  onComplete
+}: SplashScreenProps) {
   const [progress, setProgress] = useState(0);
-
   useEffect(() => {
     const interval = setInterval(() => {
       setProgress(prev => {
         const newProgress = prev + 1;
-        
         if (newProgress >= 100) {
           setTimeout(() => onComplete(), 1000);
         }
         return Math.min(newProgress, 100);
       });
     }, 50);
-
     return () => clearInterval(interval);
   }, [onComplete]);
-
-  return (
-    <div className="min-h-screen bg-background flex items-center justify-center relative overflow-hidden">
+  return <div className="min-h-screen bg-background flex items-center justify-center relative overflow-hidden">
       {/* Background artwork */}
       <div className="absolute inset-0">
         <div className="w-full h-full bg-gradient-to-br from-background via-background/90 to-background/70" />
@@ -38,7 +33,7 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
             <span className="text-white font-bold text-lg">R</span>
           </div>
           <div>
-            <div className="text-white font-bold text-xl">RIOT</div>
+            <div className="text-white font-bold text-xl">ROCK</div>
             <div className="text-white/70 text-sm">GAMES</div>
           </div>
         </div>
@@ -66,6 +61,5 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
           <Progress value={progress} className="h-2" />
         </div>
       </div>
-    </div>
-  );
+    </div>;
 }
