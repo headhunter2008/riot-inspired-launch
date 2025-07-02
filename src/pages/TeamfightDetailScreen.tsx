@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { PatchNotesPage } from "@/components/game/PatchNotesPage";
+import { TeamfightPatchNotes } from "@/components/game/TeamfightPatchNotes";
 export function TeamfightDetailScreen() {
   const [activeTab, setActiveTab] = useState<'overview' | 'patchnotes'>('overview');
   
   return <div className="min-h-screen bg-gradient-to-br from-background via-background/95 to-gaming-purple/5">
       {/* Content based on active tab */}
-      {activeTab === 'patchnotes' ? <PatchNotesPage onOverviewClick={() => setActiveTab('overview')} /> : <div>
+      {activeTab === 'patchnotes' ? <TeamfightPatchNotes onOverviewClick={() => setActiveTab('overview')} /> : <div>
           {/* Header with background video/image */}
           <div className="relative h-[70vh] overflow-hidden">
             {/* Video background placeholder */}
