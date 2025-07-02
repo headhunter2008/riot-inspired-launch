@@ -29,9 +29,7 @@ export function SplashScreen({
       {/* Riot Games Logo */}
       <div className="absolute top-8 left-8 z-10">
         <div className="flex items-center space-x-3">
-          <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-lg">R</span>
-          </div>
+          
           <div>
             <div className="text-white font-bold text-xl">ROCK</div>
             <div className="text-white/70 text-sm">GAMES</div>
