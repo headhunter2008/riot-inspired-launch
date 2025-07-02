@@ -163,7 +163,7 @@ All colors MUST be HSL.
     @apply transition-all duration-200 ease-in-out;
     @apply border border-border rounded-lg font-medium;
     @apply shadow-md hover:shadow-lg;
-    @apply transform hover:scale-[1.02] active:scale-98;
+    @apply transform hover:scale-[1.02] active:scale-95;
   }
 
   .glass-effect {
