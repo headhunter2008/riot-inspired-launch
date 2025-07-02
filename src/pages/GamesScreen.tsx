@@ -50,8 +50,8 @@ export function GamesScreen({ onGameSelect }: GamesScreenProps) {
   const [hoveredGame, setHoveredGame] = useState<string | null>(null);
 
   return (
-    <div className="p-8 ml-20">
-      <h1 className="text-4xl font-bold text-foreground mb-8">Games</h1>
+    <div className="p-8 ml-16">
+      <h1 className="text-4xl font-bold riot-title mb-8">Games</h1>
       
       <div className="mb-8">
         <h2 className="text-2xl font-semibold text-foreground mb-6">All Games</h2>

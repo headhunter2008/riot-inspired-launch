@@ -35,13 +35,13 @@ export function LoginScreen({ onLogin }: LoginScreenProps) {
           </div>
 
           {/* Sign-in tabs */}
-          <div className="flex space-x-1 bg-muted rounded-lg p-1">
-            <Button variant="secondary" className="flex-1 bg-background">
+          <div className="flex space-x-1 glass-effect rounded-xl p-1">
+            <button className="flex-1 riot-button-secondary py-3 text-sm font-bold">
               📱 Sign-in
-            </Button>
-            <Button variant="ghost" className="flex-1">
+            </button>
+            <button className="flex-1 py-3 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               🔗 QR Code
-            </Button>
+            </button>
           </div>
 
           {/* Login form */}
@@ -144,12 +144,12 @@ export function LoginScreen({ onLogin }: LoginScreenProps) {
         
         {/* Install button */}
         <div className="absolute bottom-8 right-8">
-          <Button 
-            size="lg" 
-            className="bg-primary hover:bg-primary/90 px-8 py-3 text-lg font-bold"
-          >
-            📥 Install
-          </Button>
+          <button className="riot-button px-8 py-4 text-lg font-bold flex items-center space-x-3">
+            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z" />
+            </svg>
+            <span>Install</span>
+          </button>
         </div>
       </div>
     </div>
