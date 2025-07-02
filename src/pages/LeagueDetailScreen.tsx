@@ -46,7 +46,7 @@ export function LeagueDetailScreen() {
           <h2 className="text-xl font-semibold mb-2">Welcome to the Rift</h2>
           <p className="text-lg opacity-90 max-w-md">Join millions of players in the most competitive MOBA in the world. Master your champion and climb the ranked ladder.</p>
           
-          <Button variant="outline" className="mt-4 bg-white/10 border-white/30 text-white hover:bg-white/20">
+          <Button variant="outline" className="mt-4 bg-white/10 border-white/30 text-white hover:bg-white/20 my-0 px-[24px] py-[12px]">
             Learn More
           </Button>
         </div>
