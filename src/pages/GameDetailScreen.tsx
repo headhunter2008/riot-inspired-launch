@@ -83,8 +83,8 @@ export function GameDetailScreen({ gameId }: GameDetailScreenProps) {
         
         {/* Install button */}
         <div className="absolute top-6 left-6">
-          <Button size="lg" className="bg-primary hover:bg-primary/90 px-8 py-3 text-lg font-bold rounded-full">
-            ⬇ Install
+          <Button size="lg" className="bg-primary hover:bg-primary/90 px-8 py-3 text-lg font-bold">
+            📥 Install
           </Button>
         </div>
         
@@ -111,16 +111,16 @@ export function GameDetailScreen({ gameId }: GameDetailScreenProps) {
       <div className="px-8 py-6">
         <h3 className="text-xl font-semibold text-foreground mb-4">Platform Availability</h3>
         <div className="flex space-x-4">
-          <Badge variant="secondary" className="px-4 py-2 bg-white/10 text-white border-white/20">
+          <Badge variant="secondary" className="px-4 py-2">
             🖥️ Windows
           </Badge>
           {game.platforms?.includes("PlayStation®5") && (
-            <Badge variant="outline" className="px-4 py-2 bg-muted/50 text-muted-foreground border-muted">
+            <Badge variant="outline" className="px-4 py-2">
               🎮 PlayStation®5
             </Badge>
           )}
           {game.platforms?.includes("Xbox Series X|S") && (
-            <Badge variant="outline" className="px-4 py-2 bg-muted/50 text-muted-foreground border-muted">
+            <Badge variant="outline" className="px-4 py-2">
               🎮 Xbox Series X|S
             </Badge>
           )}
@@ -134,12 +134,10 @@ export function GameDetailScreen({ gameId }: GameDetailScreenProps) {
           
           <div className="grid grid-cols-3 gap-6">
             {/* Minimum Specs */}
-            <div className="bg-card rounded-lg p-6 border border-border">
+            <div className="bg-card rounded-lg p-6">
               <div className="text-center mb-4">
-                <div className="bg-muted/50 text-muted-foreground px-4 py-2 rounded text-sm font-medium">
-                  Minimum Specs
-                </div>
-                <div className="text-3xl font-bold text-foreground mt-4">{game.systemRequirements.minimum.fps}</div>
+                <h4 className="font-semibold text-foreground">Minimum Specs</h4>
+                <div className="text-2xl font-bold text-foreground mt-2">{game.systemRequirements.minimum.fps}</div>
               </div>
               
               <div className="space-y-3 text-sm">
@@ -163,12 +161,10 @@ export function GameDetailScreen({ gameId }: GameDetailScreenProps) {
             </div>
             
             {/* Recommended Specs */}
-            <div className="bg-card rounded-lg p-6 border border-border">
+            <div className="bg-primary/10 border border-primary/20 rounded-lg p-6">
               <div className="text-center mb-4">
-                <div className="bg-primary text-primary-foreground px-4 py-2 rounded text-sm font-medium">
-                  Recommended Specs
-                </div>
-                <div className="text-3xl font-bold text-foreground mt-4">{game.systemRequirements.recommended.fps}</div>
+                <h4 className="font-semibold text-foreground">Recommended Specs</h4>
+                <div className="text-2xl font-bold text-foreground mt-2">{game.systemRequirements.recommended.fps}</div>
               </div>
               
               <div className="space-y-3 text-sm">
@@ -192,12 +188,10 @@ export function GameDetailScreen({ gameId }: GameDetailScreenProps) {
             </div>
             
             {/* High-end Specs */}
-            <div className="bg-card rounded-lg p-6 border border-border">
+            <div className="bg-card rounded-lg p-6">
               <div className="text-center mb-4">
-                <div className="bg-primary text-primary-foreground px-4 py-2 rounded text-sm font-medium">
-                  High-end Specs
-                </div>
-                <div className="text-3xl font-bold text-foreground mt-4">{game.systemRequirements.highEnd.fps}</div>
+                <h4 className="font-semibold text-foreground">High-end Specs</h4>
+                <div className="text-2xl font-bold text-foreground mt-2">{game.systemRequirements.highEnd.fps}</div>
               </div>
               
               <div className="space-y-3 text-sm">
@@ -221,11 +215,9 @@ export function GameDetailScreen({ gameId }: GameDetailScreenProps) {
             </div>
           </div>
           
-          <div className="text-center mt-8">
-            <Button variant="outline" className="px-8 text-muted-foreground border-muted">
-              SHOW MORE ↓
-            </Button>
-          </div>
+          <Button variant="outline" className="mt-6">
+            SHOW MORE ⌄
+          </Button>
         </div>
       )}
       
@@ -235,38 +227,38 @@ export function GameDetailScreen({ gameId }: GameDetailScreenProps) {
         
         <div className="grid grid-cols-4 gap-8 text-sm">
           <div>
-            <div className="text-muted-foreground font-medium">WEBSITE</div>
+            <span className="text-muted-foreground">WEBSITE</span>
             <div className="text-foreground mt-1">{game.website}</div>
           </div>
           <div>
-            <div className="text-muted-foreground font-medium">DEVELOPER</div>
+            <span className="text-muted-foreground">DEVELOPER</span>
             <div className="flex items-center space-x-2 mt-1">
-              <div className="w-6 h-6 bg-primary rounded flex items-center justify-center">
-                <span className="text-white text-xs font-bold">🏢</span>
+              <div className="w-4 h-4 bg-primary rounded">
+                <span className="text-white text-xs">R</span>
               </div>
-              <span className="text-foreground font-medium">{game.developer}</span>
+              <span className="text-foreground">{game.developer}</span>
             </div>
           </div>
           <div>
-            <div className="text-muted-foreground font-medium">PUBLISHER</div>
+            <span className="text-muted-foreground">PUBLISHER</span>
             <div className="flex items-center space-x-2 mt-1">
-              <div className="w-6 h-6 bg-primary rounded flex items-center justify-center">
-                <span className="text-white text-xs font-bold">🏢</span>
+              <div className="w-4 h-4 bg-primary rounded">
+                <span className="text-white text-xs">R</span>
               </div>
-              <span className="text-foreground font-medium">{game.publisher}</span>
+              <span className="text-foreground">{game.publisher}</span>
             </div>
           </div>
           <div>
-            <div className="text-muted-foreground font-medium">RELEASE DATE</div>
+            <span className="text-muted-foreground">RELEASE DATE</span>
             <div className="text-foreground mt-1">{game.releaseDate}</div>
           </div>
         </div>
         
         {game.rating && (
-          <div className="mt-8">
-            <div className="inline-block bg-orange-500 text-white px-3 py-2 rounded text-sm font-bold">
-              {game.rating}
-              <div className="text-xs">Ages {game.rating} & up</div>
+          <div className="mt-6">
+            <div className="w-12 h-16 bg-orange-500 rounded flex flex-col items-center justify-center text-white">
+              <span className="text-xs">PEGI</span>
+              <span className="text-lg font-bold">{game.rating}</span>
             </div>
           </div>
         )}
