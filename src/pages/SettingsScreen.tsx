@@ -76,9 +76,7 @@ export function SettingsScreen({
                         RECOMMENDED
                       </span>
                     </div>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      Riot Client will run in your system tray when your computer starts so your games can update automatically.
-                    </p>
+                    <p className="text-sm text-muted-foreground mt-1">Rock Client will run in your system tray when your computer starts so your apps can update automatically.</p>
                   </div>
                 </div>
               </div>
