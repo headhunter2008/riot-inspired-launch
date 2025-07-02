@@ -86,13 +86,21 @@ export function GameDetailScreen({
           <div className="flex space-x-8 glass-effect rounded-full px-6 py-3">
             <button 
               onClick={() => setActiveTab('overview')} 
-              className={`font-medium transition-all duration-200 ${activeTab === 'overview' ? 'text-white border-b-2 border-primary pb-1' : 'text-white/70 hover:text-white'}`}
+              className={`font-medium transition-all duration-200 ${
+                activeTab === 'overview' 
+                  ? 'text-white border-b-2 border-primary pb-1' 
+                  : 'text-white/70 hover:text-white'
+              }`}
             >
               Overview
             </button>
             <button 
               onClick={() => setActiveTab('patchnotes')} 
-              className={`font-medium transition-all duration-200 relative ${activeTab === 'patchnotes' ? 'text-white border-b-2 border-primary pb-1' : 'text-white/70 hover:text-white'}`}
+              className={`font-medium transition-all duration-200 relative ${
+                activeTab === 'patchnotes' 
+                  ? 'text-white border-b-2 border-primary pb-1' 
+                  : 'text-white/70 hover:text-white'
+              }`}
             >
               Patch Notes
               <span className="ml-2 w-2 h-2 bg-primary rounded-full inline-block animate-pulse"></span>

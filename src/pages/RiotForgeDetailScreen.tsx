@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -29,13 +30,21 @@ export function RiotForgeDetailScreen() {
           <div className="flex space-x-8 glass-effect rounded-full px-6 py-3">
             <button 
               onClick={() => setActiveTab('overview')} 
-              className={`font-medium transition-all duration-200 ${activeTab === 'overview' ? 'text-white border-b-2 border-primary pb-1' : 'text-white/70 hover:text-white'}`}
+              className={`font-medium transition-all duration-200 ${
+                activeTab === 'overview' 
+                  ? 'text-white border-b-2 border-primary pb-1' 
+                  : 'text-white/70 hover:text-white'
+              }`}
             >
               Overview
             </button>
             <button 
               onClick={() => setActiveTab('patchnotes')} 
-              className={`font-medium transition-all duration-200 relative ${activeTab === 'patchnotes' ? 'text-white border-b-2 border-primary pb-1' : 'text-white/70 hover:text-white'}`}
+              className={`font-medium transition-all duration-200 relative ${
+                activeTab === 'patchnotes' 
+                  ? 'text-white border-b-2 border-primary pb-1' 
+                  : 'text-white/70 hover:text-white'
+              }`}
             >
               Patch Notes
               <span className="ml-2 w-2 h-2 bg-primary rounded-full inline-block animate-pulse"></span>
@@ -104,7 +113,7 @@ export function RiotForgeDetailScreen() {
           </div>
           <div className="border border-border hover-glow px-6 py-3 rounded-lg flex items-center space-x-3 transition-all duration-200 hover:bg-accent/20">
             <svg className="w-5 h-5 text-muted-foreground" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2Z" />
+              <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,20 0 0,1 12,2Z" />
             </svg>
             <span className="font-medium text-muted-foreground">Nintendo Switch</span>
           </div>
