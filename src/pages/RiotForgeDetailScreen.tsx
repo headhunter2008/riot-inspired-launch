@@ -42,7 +42,7 @@ export function RiotForgeDetailScreen() {
         
         {/* Game title and trailer info */}
         <div className="absolute bottom-8 left-8 text-white">
-          <h1 className="text-6xl font-bold mb-4">Riot Forge</h1>
+          <h1 className="font-bold mb-4 text-7xl">Riot Forge</h1>
           <h2 className="text-xl font-semibold mb-2">Explore New Worlds</h2>
           <p className="text-lg opacity-90 max-w-md">Discover amazing single-player games set in the world of Runeterra, created by talented independent developers.</p>
           
