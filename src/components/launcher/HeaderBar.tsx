@@ -1,7 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { User, X } from "lucide-react";
 
-export function HeaderBar() {
+interface HeaderBarProps {
+  onSettingsOpen: () => void;
+}
+
+export function HeaderBar({ onSettingsOpen }: HeaderBarProps) {
   return (
     <div className="h-12 bg-background border-b border-border flex items-center justify-between px-4">
       {/* Left side - can be empty or have breadcrumbs */}

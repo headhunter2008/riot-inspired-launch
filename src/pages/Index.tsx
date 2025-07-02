@@ -1,5 +1,3 @@
-import { LauncherSidebar } from "@/components/launcher/LauncherSidebar";
-import { HeaderBar } from "@/components/launcher/HeaderBar";
 import { FeaturedCard } from "@/components/launcher/FeaturedCard";
 import { ContentCard } from "@/components/launcher/ContentCard";
 
@@ -39,44 +37,36 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background flex">
-      <LauncherSidebar />
-      
-      <div className="flex-1 flex flex-col">
-        <HeaderBar />
+    <div className="p-8">
+      {/* Header */}
+      <div className="mb-8">
+        <h1 className="text-4xl font-bold text-foreground">Home</h1>
+      </div>
+
+      {/* What's New Section */}
+      <div className="mb-12">
+        <h2 className="text-2xl font-semibold text-foreground mb-8">What's New</h2>
         
-        <main className="flex-1 p-8 overflow-auto">
-          {/* Header */}
-          <div className="mb-8">
-            <h1 className="text-4xl font-bold text-foreground">Home</h1>
-          </div>
+        <FeaturedCard
+          title="MSI 2025 Coach Jacket"
+          description="Support your region's battle for glory and pride in the MSI 2025 Coach Jacket!"
+          category="Merch"
+          imageUrl={featuredMerch}
+        />
+      </div>
 
-          {/* What's New Section */}
-          <div className="mb-12">
-            <h2 className="text-2xl font-semibold text-foreground mb-8">What's New</h2>
-            
-            <FeaturedCard
-              title="MSI 2025 Coach Jacket"
-              description="Support your region's battle for glory and pride in the MSI 2025 Coach Jacket!"
-              category="Merch"
-              imageUrl={featuredMerch}
-            />
-          </div>
-
-          {/* Content Grid */}
-          <div className="grid grid-cols-4 gap-6">
-            {contentItems.map((item, index) => (
-              <ContentCard
-                key={index}
-                title={item.title}
-                category={item.category}
-                imageUrl={item.imageUrl}
-                tag={item.tag}
-                tagColor={item.tag === "MERCH" ? "bg-primary" : "bg-accent"}
-              />
-            ))}
-          </div>
-        </main>
+      {/* Content Grid */}
+      <div className="grid grid-cols-4 gap-6">
+        {contentItems.map((item, index) => (
+          <ContentCard
+            key={index}
+            title={item.title}
+            category={item.category}
+            imageUrl={item.imageUrl}
+            tag={item.tag}
+            tagColor={item.tag === "MERCH" ? "bg-primary" : "bg-accent"}
+          />
+        ))}
       </div>
     </div>
   );

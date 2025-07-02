@@ -9,6 +9,12 @@ interface SidebarItem {
   color?: string;
 }
 
+interface LauncherSidebarProps {
+  currentPage: string;
+  onPageChange: (page: string) => void;
+  onGameSelect?: (gameId: string) => void;
+}
+
 const sidebarItems: SidebarItem[] = [
   { icon: Home, label: "Home", isActive: true },
   { icon: Grid3X3, label: "Library" },
@@ -22,7 +28,7 @@ const gameIcons = [
   { color: "bg-gaming-blue", symbol: "⭐", tooltip: "Riot Forge" },
 ];
 
-export function LauncherSidebar() {
+export function LauncherSidebar({ currentPage, onPageChange, onGameSelect }: LauncherSidebarProps) {
   return (
     <div className="w-20 bg-sidebar flex flex-col">
       {/* Logo/Brand area */}
@@ -39,15 +45,16 @@ export function LauncherSidebar() {
             key={index}
             variant="ghost"
             size="icon"
+            onClick={() => onPageChange(item.label.toLowerCase())}
             className={cn(
               "w-12 h-12 rounded-lg flex flex-col items-center justify-center group relative border border-transparent transition-all duration-200",
-              item.isActive 
+              currentPage === item.label.toLowerCase()
                 ? "bg-sidebar-accent text-primary border-primary/50" 
                 : "text-sidebar-foreground/70 hover:text-sidebar-foreground hover:bg-white/25 hover:border-white/50"
             )}
           >
             <item.icon className="h-6 w-6" />
-            {item.isActive && (
+            {currentPage === item.label.toLowerCase() && (
               <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary rounded-r" />
             )}
           </Button>
@@ -62,6 +69,7 @@ export function LauncherSidebar() {
             key={index}
             variant="ghost"
             size="icon"
+            onClick={() => onGameSelect?.(game.tooltip.toLowerCase().replace(' ', '-'))}
             className="w-12 h-12 rounded-lg hover:bg-white/25 hover:border-white/50 text-sidebar-foreground/70 hover:text-sidebar-foreground relative group border border-transparent transition-all duration-200"
             title={game.tooltip}
           >
