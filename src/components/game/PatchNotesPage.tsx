@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-
 interface PatchNote {
   id: string;
   title: string;
@@ -11,74 +10,56 @@ interface PatchNote {
   date: string;
   image?: string;
 }
-
 interface PatchNotesPageProps {
   onOverviewClick?: () => void;
 }
-
-const patchNotes: PatchNote[] = [
-  {
-    id: "1",
-    title: "VALORANT PATCH NOTES 11.00",
-    version: "11.00",
-    description: "Agent updates, new map Corrode, map rotation, and so much more!",
-    category: "Game Updates",
-    author: "Ashley Tsao",
-    date: "6/24/2025",
-    image: "/lovable-uploads/25774c6c-8ba1-4fb4-82e5-7ca06753246d.png"
-  },
-  {
-    id: "2",
-    title: "VALORANT PATCH NOTES 10.11",
-    version: "10.11",
-    description: "Balance updates for competitive play and bug fixes.",
-    category: "Game Updates",
-    author: "Dev Team",
-    date: "6/10/2025"
-  },
-  {
-    id: "3",
-    title: "VALORANT PATCH NOTES 10.10",
-    version: "10.10",
-    description: "New skins, agent adjustments, and quality of life improvements.",
-    category: "Game Updates",
-    author: "Content Team",
-    date: "5/28/2025"
-  }
-];
-
-export function PatchNotesPage({ onOverviewClick }: PatchNotesPageProps = {}) {
+const patchNotes: PatchNote[] = [{
+  id: "1",
+  title: "VALORANT PATCH NOTES 11.00",
+  version: "11.00",
+  description: "Agent updates, new map Corrode, map rotation, and so much more!",
+  category: "Game Updates",
+  author: "Ashley Tsao",
+  date: "6/24/2025",
+  image: "/lovable-uploads/25774c6c-8ba1-4fb4-82e5-7ca06753246d.png"
+}, {
+  id: "2",
+  title: "VALORANT PATCH NOTES 10.11",
+  version: "10.11",
+  description: "Balance updates for competitive play and bug fixes.",
+  category: "Game Updates",
+  author: "Dev Team",
+  date: "6/10/2025"
+}, {
+  id: "3",
+  title: "VALORANT PATCH NOTES 10.10",
+  version: "10.10",
+  description: "New skins, agent adjustments, and quality of life improvements.",
+  category: "Game Updates",
+  author: "Content Team",
+  date: "5/28/2025"
+}];
+export function PatchNotesPage({
+  onOverviewClick
+}: PatchNotesPageProps = {}) {
   const [selectedPatch, setSelectedPatch] = useState(patchNotes[0]);
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background/95 to-gaming-purple/5">
+  return <div className="min-h-screen bg-gradient-to-br from-background via-background/95 to-gaming-purple/5">
       {/* Hero Section with Featured Patch */}
       <div className="relative h-[70vh] overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-gaming-purple/20 via-primary/10 to-gaming-blue/15">
-          {selectedPatch.image ? (
-            <img 
-              src={selectedPatch.image} 
-              alt={selectedPatch.title}
-              className="w-full h-full object-cover opacity-60"
-            />
-          ) : (
-            <div className="w-full h-full flex items-center justify-center">
+          {selectedPatch.image ? <img src={selectedPatch.image} alt={selectedPatch.title} className="w-full h-full object-cover opacity-60" /> : <div className="w-full h-full flex items-center justify-center">
               <div className="text-9xl opacity-10 text-primary">⚡</div>
-            </div>
-          )}
+            </div>}
         </div>
         
         {/* Overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />
         
         {/* Navigation tabs */}
         <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-20">
           <div className="flex space-x-8 glass-effect rounded-full px-6 py-3">
-            <button 
-              onClick={onOverviewClick}
-              className="text-white/70 font-medium hover:text-white transition-all duration-200"
-            >
+            <button onClick={onOverviewClick} className="text-white/70 font-medium hover:text-white transition-all duration-200">
               Overview
             </button>
             <button className="text-white font-bold border-b-2 border-primary pb-1 transition-all duration-200">
@@ -113,16 +94,7 @@ export function PatchNotesPage({ onOverviewClick }: PatchNotesPageProps = {}) {
         <h2 className="text-3xl font-bold riot-title mb-8">Recent Updates</h2>
         
         <div className="grid gap-6">
-          {patchNotes.map((patch) => (
-            <div
-              key={patch.id}
-              onClick={() => setSelectedPatch(patch)}
-              className={`glass-effect hover-glow rounded-xl p-6 cursor-pointer transition-all duration-300 ${
-                selectedPatch.id === patch.id 
-                  ? 'border-primary/50 bg-primary/5' 
-                  : 'border-border/30 hover:border-primary/30'
-              }`}
-            >
+          {patchNotes.map(patch => <div key={patch.id} onClick={() => setSelectedPatch(patch)} className={`glass-effect hover-glow rounded-xl p-6 cursor-pointer transition-all duration-300 ${selectedPatch.id === patch.id ? 'border-primary/50 bg-primary/5' : 'border-border/30 hover:border-primary/30'}`}>
               <div className="flex items-start justify-between">
                 <div className="flex-1">
                   <div className="flex items-center space-x-4 mb-3">
@@ -142,29 +114,19 @@ export function PatchNotesPage({ onOverviewClick }: PatchNotesPageProps = {}) {
                 </div>
                 
                 <div className="ml-6">
-                  <Button 
-                    variant="outline" 
-                    size="sm"
-                    className="hover:bg-primary/10 hover:border-primary/50"
-                  >
+                  <Button variant="outline" size="sm" className="hover:bg-primary/10 hover:border-primary/50">
                     Read More
                   </Button>
                 </div>
               </div>
-            </div>
-          ))}
+            </div>)}
         </div>
         
         <div className="mt-12 text-center">
-          <Button 
-            variant="outline" 
-            size="lg"
-            className="riot-button-secondary px-8 py-3 font-bold"
-          >
+          <Button variant="outline" size="lg" className="riot-button-secondary px-8 py-3 font-bold">
             LOAD MORE UPDATES
           </Button>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 }
