@@ -41,7 +41,7 @@ export function RiotForgeDetailScreen() {
             <button 
               onClick={() => setActiveTab('patchnotes')} 
               className={`font-medium transition-all duration-200 relative ${
-                activeTab === 'patchnotes' 
+                activeTab !== 'overview' 
                   ? 'text-white border-b-2 border-primary pb-1' 
                   : 'text-white/70 hover:text-white'
               }`}

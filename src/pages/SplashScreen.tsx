@@ -7,31 +7,21 @@ interface SplashScreenProps {
 
 export function SplashScreen({ onComplete }: SplashScreenProps) {
   const [progress, setProgress] = useState(0);
-  const [currentSize, setCurrentSize] = useState(0);
-  const totalSize = 37.3;
-  const [timeRemaining, setTimeRemaining] = useState("04:04");
 
   useEffect(() => {
     const interval = setInterval(() => {
       setProgress(prev => {
         const newProgress = prev + 1;
-        setCurrentSize((newProgress / 100) * totalSize);
-        
-        // Update time remaining
-        const remainingSeconds = Math.max(0, 244 - (newProgress * 2.44));
-        const minutes = Math.floor(remainingSeconds / 60);
-        const seconds = Math.floor(remainingSeconds % 60);
-        setTimeRemaining(`${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`);
         
         if (newProgress >= 100) {
           setTimeout(() => onComplete(), 1000);
         }
         return Math.min(newProgress, 100);
       });
-    }, 100);
+    }, 50);
 
     return () => clearInterval(interval);
-  }, [onComplete, totalSize]);
+  }, [onComplete]);
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center relative overflow-hidden">
@@ -63,22 +53,17 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
           </div>
         </div>
 
-        {/* Installing text */}
+        {/* Loading text */}
         <div className="text-center mb-6">
-          <h2 className="text-primary font-bold text-xl mb-2">INSTALLING</h2>
+          <h2 className="text-primary font-bold text-xl mb-2">LOADING</h2>
           <div className="text-foreground text-lg">
-            {currentSize.toFixed(1)} / {totalSize} GB
+            {progress}%
           </div>
         </div>
 
         {/* Progress bar */}
         <div className="mb-6">
           <Progress value={progress} className="h-2" />
-        </div>
-
-        {/* Time remaining */}
-        <div className="text-center">
-          <div className="text-primary font-bold text-4xl">{timeRemaining}</div>
         </div>
       </div>
     </div>
