@@ -75,7 +75,7 @@ export function GameDetailScreen({
       </div>
 
       {/* Content based on active tab */}
-      {activeTab === 'patchnotes' ? <PatchNotesPage /> : <div>
+      {activeTab === 'patchnotes' ? <PatchNotesPage onOverviewClick={() => setActiveTab('overview')} /> : <div>
           {/* Header with background video/image */}
           <div className="relative h-[70vh] overflow-hidden">
             {/* Video background placeholder */}

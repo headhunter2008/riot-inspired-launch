@@ -12,6 +12,10 @@ interface PatchNote {
   image?: string;
 }
 
+interface PatchNotesPageProps {
+  onOverviewClick?: () => void;
+}
+
 const patchNotes: PatchNote[] = [
   {
     id: "1",
@@ -43,7 +47,7 @@ const patchNotes: PatchNote[] = [
   }
 ];
 
-export function PatchNotesPage() {
+export function PatchNotesPage({ onOverviewClick }: PatchNotesPageProps = {}) {
   const [selectedPatch, setSelectedPatch] = useState(patchNotes[0]);
 
   return (
@@ -71,7 +75,10 @@ export function PatchNotesPage() {
         {/* Navigation tabs */}
         <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-20">
           <div className="flex space-x-8 glass-effect rounded-full px-6 py-3">
-            <button className="text-white/70 font-medium hover:text-white transition-all duration-200">
+            <button 
+              onClick={onOverviewClick}
+              className="text-white/70 font-medium hover:text-white transition-all duration-200"
+            >
               Overview
             </button>
             <button className="text-white font-bold border-b-2 border-primary pb-1 transition-all duration-200">

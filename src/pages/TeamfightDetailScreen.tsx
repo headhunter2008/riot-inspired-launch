@@ -181,5 +181,5 @@ export function TeamfightDetailScreen() {
     </div>
   );
 
-  return activeTab === 'overview' ? overviewContent : <PatchNotesPage />;
+  return activeTab === 'overview' ? overviewContent : <PatchNotesPage onOverviewClick={() => setActiveTab('overview')} />;
 }
